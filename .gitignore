@@ -44,3 +44,4 @@ app.*.map.json
 
 #add the bash profile to .gitignore
 /REST_API/.bash_profile
+/REST_API/env/
