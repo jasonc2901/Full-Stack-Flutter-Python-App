@@ -11,8 +11,6 @@ class UserResource(Resource):
     def get(self):
         users = User.query.all()
         users_data = users_schema.dump(users).data
-        user_list = []
-
         userid = request.args.get('id',type = int)
         username = request.args.get('username', type = str)
 
