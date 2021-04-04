@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_api_app/view/home_screen.dart';
-import 'package:simple_api_app/view/user_details_view.dart';
+// import 'package:simple_api_app/view/user_details_view.dart';
 
 void main() => runApp(MyApp());
 

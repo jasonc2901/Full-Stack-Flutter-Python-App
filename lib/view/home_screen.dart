@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_api_app/blocs/addUserBloc.dart';
+// import 'package:simple_api_app/blocs/addUserBloc.dart';
 import 'package:simple_api_app/view/new_user_setup.dart';
 import 'package:simple_api_app/view/user_details_view.dart';
 
@@ -38,13 +38,13 @@ class _GetHomeState extends State<HomePage> {
                 ButtonTheme(
                   minWidth: 150,
                   height: 70,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () {
                       print("New User Button Pressed!!!");
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => CreateNewUserPage()));
                     },
-                    color: Colors.grey[600],
+                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.grey[600])),
                     child: Text('New User',
                         style: TextStyle(fontSize: 27, color: Colors.white)),
                   ),
@@ -55,7 +55,7 @@ class _GetHomeState extends State<HomePage> {
                 ButtonTheme(
                   minWidth: 150,
                   height: 70,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () {
                       print("Existing User Button Pressed!!!");
                       Navigator.push(
@@ -63,7 +63,7 @@ class _GetHomeState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => GetUserDetails()),
                     );
                     },
-                    color: Colors.grey[600],
+                    style:ButtonStyle(backgroundColor:MaterialStateProperty.all(Colors.grey[600])),
                     child: Text('View User',
                         style: TextStyle(fontSize: 27, color: Colors.white)),
                   ),

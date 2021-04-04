@@ -146,8 +146,9 @@ class Error extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8),
-          RaisedButton(
-            color: Colors.white,
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white)),
             child: Text('Retry', style: TextStyle(color: Colors.black)),
             onPressed: onRetryPressed,
           )

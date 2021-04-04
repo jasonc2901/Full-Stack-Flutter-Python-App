@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:simple_api_app/blocs/UserBloc.dart';
-import 'package:simple_api_app/networking/Response.dart';
-import 'package:simple_api_app/models/UserModel.dart';
+// import 'package:simple_api_app/blocs/UserBloc.dart';
+// import 'package:simple_api_app/networking/Response.dart';
+// import 'package:simple_api_app/models/UserModel.dart';
 import 'package:simple_api_app/view/home_screen.dart';
 import 'package:simple_api_app/view/show_user.dart';
-import 'package:simple_api_app/view/user_details_view.dart';
+// import 'package:simple_api_app/view/user_details_view.dart';
 import 'package:simple_api_app/CustomAlert/CustomAlertDialog.dart';
 
 class GetUserDetails extends StatefulWidget {
@@ -85,13 +85,15 @@ class _GetUserState extends State<GetUserDetails> {
                   } else {
                     showDialog(
                       context: context,
-                      child: new CustomDialog(
-                        title: 'Cannot leave field empty!',
-                        description: "Please enter a valid username.",
-                        buttonText: "Okay",
-                        alertImage: "assets/x.png",
-                        buttonColor: Colors.red[700],
-                      ),
+                      builder: (context) {
+                        return CustomDialog(
+                          title: 'Cannot leave field empty!',
+                          description: "Please enter a valid username.",
+                          buttonText: "Okay",
+                          alertImage: "assets/x.png",
+                          buttonColor: Colors.red[700],
+                        );
+                      },
                     );
                   }
                 },
