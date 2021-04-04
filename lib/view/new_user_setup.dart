@@ -51,9 +51,8 @@ class _CreateNewUserState extends State<CreateNewUserPage> {
                 );
               })),
       backgroundColor: Color(0xFF333333),
-      body: ListView(
-        children: <Widget>[
-          Container(
+      body: ListView(children: <Widget>[
+        Container(
           child: Center(
             child: Column(
               children: <Widget>[
@@ -230,8 +229,8 @@ class _CreateNewUserState extends State<CreateNewUserPage> {
                   child: ButtonTheme(
                     minWidth: 200,
                     height: 60,
-                    child: RaisedButton(
-                      color: Colors.grey[600],
+                    child: ElevatedButton(
+                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.grey[600])),
                       child: Text(
                         "Save User!",
                         style: TextStyle(color: Colors.white, fontSize: 30),
@@ -244,7 +243,6 @@ class _CreateNewUserState extends State<CreateNewUserPage> {
                         String password = passwordController.text;
                         String emailaddress = emailController.text;
                         String imageurl = "";
-
                         if (username.length < 1 ||
                             firstname.length < 1 ||
                             lastname.length < 1 ||
@@ -252,17 +250,25 @@ class _CreateNewUserState extends State<CreateNewUserPage> {
                             emailaddress.length < 1) {
                           showDialog(
                               context: context,
-                              child: new CustomDialog(
-                                title: 'Blank field!',
-                                description: "Please ensure fields are filled.",
-                                buttonText: "Okay",
-                                alertImage: "assets/x.png",
-                                buttonColor: Colors.red[700],
-                              ));
+                              builder: (context) {
+                                return CustomDialog(
+                                  title: 'Blank field!',
+                                  description:
+                                      "Please ensure fields are filled.",
+                                  buttonText: "Okay",
+                                  alertImage: "assets/x.png",
+                                  buttonColor: Colors.red[700],
+                                );
+                              });
                         } else {
                           Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              SendUserToAPI(username,firstname,lastname,password, emailaddress,imageurl)));
+                              builder: (context) => SendUserToAPI(
+                                  username,
+                                  firstname,
+                                  lastname,
+                                  password,
+                                  emailaddress,
+                                  imageurl)));
                         }
                       },
                     ),
@@ -272,8 +278,7 @@ class _CreateNewUserState extends State<CreateNewUserPage> {
             ),
           ),
         ),
-        ]
-      ),
+      ]),
     );
   }
 }
